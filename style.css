@@ -1,0 +1,607 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+.pantalla {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =========================
+   INICIO
+========================= */
+
+.inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.inicio-fondo {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(120, 80, 150, 0.18),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #080808,
+            #151015,
+            #080808
+        );
+}
+
+.inicio-contenido {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    animation: aparecer 1.5s ease;
+}
+
+.pequeno {
+    font-size: 12px;
+    letter-spacing: 7px;
+    opacity: 0.6;
+    margin-bottom: 25px;
+}
+
+.inicio h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(65px, 12vw, 130px);
+    font-weight: 500;
+    line-height: 0.9;
+}
+
+.linea {
+    width: 70px;
+    height: 1px;
+    background: rgba(255,255,255,0.5);
+    margin: 30px auto;
+}
+
+.intro {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+}
+
+.intro-secundario {
+    font-size: 13px;
+    opacity: 0.55;
+    margin-top: 8px;
+}
+
+.boton {
+    margin-top: 40px;
+    padding: 14px 45px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contador-fondo {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.73),
+            rgba(0,0,0,0.88)
+        ),
+        url("fotos/foto5.jpg");
+
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+
+    transform: scale(1.04);
+}
+
+.imagenes-contador {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.foto {
+    position: absolute;
+    object-fit: cover;
+    opacity: 0;
+    filter: grayscale(15%);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: fotoFlotar 7s ease-in-out infinite;
+}
+
+.foto1 {
+    width: 180px;
+    height: 230px;
+    left: 7%;
+    top: 12%;
+    transform: rotate(-8deg);
+    animation-delay: 0s;
+}
+
+.foto2 {
+    width: 190px;
+    height: 240px;
+    right: 7%;
+    top: 9%;
+    transform: rotate(7deg);
+    animation-delay: 1.5s;
+}
+
+.foto3 {
+    width: 170px;
+    height: 220px;
+    left: 5%;
+    bottom: 9%;
+    transform: rotate(6deg);
+    animation-delay: 3s;
+}
+
+.foto4 {
+    width: 170px;
+    height: 230px;
+    right: 6%;
+    bottom: 8%;
+    transform: rotate(-6deg);
+    animation-delay: 4.5s;
+}
+
+.foto5 {
+    width: 150px;
+    height: 220px;
+    left: 18%;
+    top: 43%;
+    transform: rotate(-4deg);
+    animation-delay: 2s;
+}
+
+.foto6 {
+    width: 150px;
+    height: 220px;
+    right: 18%;
+    bottom: 36%;
+    transform: rotate(5deg);
+    animation-delay: 3.5s;
+}
+
+.contador-contenido {
+    position: relative;
+    z-index: 5;
+    max-width: 850px;
+    width: 90%;
+}
+
+.contador-pequeno {
+    font-size: 11px;
+    letter-spacing: 6px;
+    opacity: 0.55;
+    margin-bottom: 20px;
+}
+
+.contador h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 9vw, 100px);
+    font-weight: 500;
+    line-height: 1;
+}
+
+.contador-descripcion {
+    margin-top: 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    opacity: 0.75;
+}
+
+.reloj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 50px;
+}
+
+.unidad {
+    display: flex;
+    flex-direction: column;
+    min-width: 90px;
+}
+
+.unidad span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 55px;
+    font-weight: 500;
+}
+
+.unidad small {
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.45;
+}
+
+.separador {
+    font-size: 45px;
+    opacity: 0.35;
+    margin-bottom: 20px;
+}
+
+.hora-especial {
+    margin-top: 45px;
+}
+
+.hora-especial span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+}
+
+.hora-especial p {
+    font-size: 11px;
+    opacity: 0.5;
+    margin-top: 5px;
+}
+
+.boton-prueba {
+    margin-top: 35px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+.boton-prueba:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.6);
+}
+
+
+/* =========================
+   TRANSICIÓN
+========================= */
+
+.transicion {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.transicion-contenido {
+    position: relative;
+    z-index: 2;
+    animation: aparecer 2s ease;
+}
+
+.ojos {
+    width: min(700px, 85vw);
+    max-height: 55vh;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.85);
+}
+
+.texto-transicion {
+    margin-top: 35px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    opacity: 0;
+    animation: aparecerTexto 2s ease 1s forwards;
+}
+
+.hora-grande {
+    font-size: clamp(60px, 10vw, 110px);
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   CARTA
+========================= */
+
+.carta {
+    min-height: 100vh;
+    background: #e8e1d5;
+    color: #292421;
+    padding: 80px 20px;
+}
+
+.carta-fondo {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.8),
+            transparent 30%
+        ),
+        #e8e1d5;
+    pointer-events: none;
+}
+
+.carta-contenedor {
+    position: relative;
+    z-index: 2;
+
+    max-width: 780px;
+    margin: auto;
+
+    background: #f8f3eb;
+
+    padding: 70px clamp(30px, 7vw, 90px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.2);
+
+    animation: cartaEntrar 1.5s ease;
+}
+
+.carta-superior {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.carta-superior span {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #777;
+}
+
+.corazon {
+    margin-top: 18px;
+    font-size: 27px;
+    color: #b05b70;
+}
+
+.carta-texto h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.carta-texto p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.foto-carta {
+    margin: 40px auto;
+    width: min(420px, 90%);
+}
+
+.foto-carta img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.principito {
+    text-align: center;
+    font-style: italic;
+    font-size: 27px !important;
+    margin-top: 45px;
+    margin-bottom: 5px !important;
+}
+
+.principito-autor {
+    text-align: center;
+    font-size: 14px !important;
+    opacity: 0.6;
+}
+
+.final {
+    text-align: center;
+    font-weight: 600;
+    font-size: 27px !important;
+    margin-top: 40px;
+}
+
+.carta-final {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.carta-final img {
+    width: min(300px, 80%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.carta-final p {
+    margin-top: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerTexto {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cartaEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fotoFlotar {
+
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    20% {
+        opacity: 0.75;
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+
+    80% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scale(1.02);
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    .contador h2 {
+        font-size: 55px;
+    }
+
+    .contador-descripcion {
+        font-size: 19px;
+    }
+
+    .reloj {
+        gap: 7px;
+        margin-top: 40px;
+    }
+
+    .unidad {
+        min-width: 55px;
+    }
+
+    .unidad span {
+        font-size: 38px;
+    }
+
+    .unidad small {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .separador {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .foto1,
+    .foto2,
+    .foto3,
+    .foto4 {
+        width: 110px;
+        height: 145px;
+    }
+
+    .foto5,
+    .foto6 {
+        display: none;
+    }
+
+    .carta {
+        padding: 30px 12px;
+    }
+
+    .carta-contenedor {
+        padding: 45px 25px;
+    }
+
+    .carta-texto h2 {
+        font-size: 40px;
+    }
+
+    .carta-texto p {
+        font-size: 19px;
+        line-height: 1.65;
+    }
+
+    .principito {
+        font-size: 24px !important;
+    }
+
+}

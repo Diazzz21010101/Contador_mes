@@ -22,6 +22,10 @@ body {
     overflow: hidden;
 }
 
+.carta {
+    overflow: visible;
+}
+
 .oculto {
     display: none !important;
 }
@@ -451,7 +455,8 @@ body {
 
 .carta-final {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 80px;
+    padding-bottom: 100px;
 }
 
 .carta-final img {

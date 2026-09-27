@@ -20,6 +20,8 @@ const carta = document.getElementById("carta");
 const btnEntrar = document.getElementById("btnEntrar");
 const btnFinal = document.getElementById("btnFinal");
 
+const musica = document.getElementById("musica");
+
 
 /* ==========================================
    ELEMENTOS DEL RELOJ
@@ -32,7 +34,14 @@ const segundos = document.getElementById("segundos");
 
 
 /* ==========================================
-   ENTRAR A LA PÁGINA
+   VARIABLE DEL CONTADOR
+========================================== */
+
+let intervalo;
+
+
+/* ==========================================
+   ENTRAR
 ========================================== */
 
 btnEntrar.addEventListener("click", () => {
@@ -50,9 +59,6 @@ btnEntrar.addEventListener("click", () => {
    CONTADOR
 ========================================== */
 
-let intervalo;
-
-
 function iniciarContador() {
 
     actualizarContador();
@@ -69,6 +75,10 @@ function actualizarContador() {
     const diferencia = fechaObjetivo - ahora;
 
 
+    /* ==============================
+       CUANDO LLEGA A LAS 8:26
+    ============================== */
+
     if (diferencia <= 0) {
 
         clearInterval(intervalo);
@@ -83,6 +93,10 @@ function actualizarContador() {
         return;
     }
 
+
+    /* ==============================
+       CALCULAR TIEMPO
+    ============================== */
 
     const diasRestantes = Math.floor(
         diferencia / (1000 * 60 * 60 * 24)
@@ -102,18 +116,15 @@ function actualizarContador() {
 
 
     dias.textContent = formato(diasRestantes);
-
     horas.textContent = formato(horasRestantes);
-
     minutos.textContent = formato(minutosRestantes);
-
     segundos.textContent = formato(segundosRestantes);
 
 }
 
 
 /* ==========================================
-   AGREGAR CERO
+   FORMATO 01, 02, 03...
 ========================================== */
 
 function formato(numero) {
@@ -129,10 +140,22 @@ function formato(numero) {
 
 function mostrarFinal() {
 
+    /* Ocultar contador */
+
     contador.classList.add("oculto");
+
+
+    /* Mostrar ojos */
 
     transicion.classList.remove("oculto");
 
+
+    /* Intentar reproducir música */
+
+    reproducirMusica();
+
+
+    /* Después de 5 segundos aparece la carta */
 
     setTimeout(() => {
 
@@ -151,7 +174,32 @@ function mostrarFinal() {
 
 
 /* ==========================================
-   BOTÓN DE PRUEBA
+   MÚSICA
+========================================== */
+
+function reproducirMusica() {
+
+    if (!musica) {
+        console.log("No se encontró el elemento de música.");
+        return;
+    }
+
+    musica.currentTime = 0;
+
+    musica.play().catch((error) => {
+
+        console.log(
+            "El navegador bloqueó la reproducción automática:",
+            error
+        );
+
+    });
+
+}
+
+
+/* ==========================================
+   BOTÓN "VER FINAL AHORA"
 ========================================== */
 
 btnFinal.addEventListener("click", () => {
@@ -160,12 +208,4 @@ btnFinal.addEventListener("click", () => {
 
     mostrarFinal();
 
-window.addEventListener("load", () => {
-    const musica = document.getElementById("musica");
-
-    musica.play().catch(() => {
-        document.addEventListener("click", () => {
-            musica.play();
-        }, { once: true });
-    });
 });

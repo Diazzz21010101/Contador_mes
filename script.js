@@ -161,3 +161,12 @@ btnFinal.addEventListener("click", () => {
     mostrarFinal();
 
 });
+const musica = document.getElementById("musica");
+
+function reproducirMusica() {
+    musica.currentTime = 0;
+
+    musica.play().catch(error => {
+        console.log("El navegador bloqueó el autoplay:", error);
+    });
+}

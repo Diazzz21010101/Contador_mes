@@ -605,3 +605,77 @@ body {
     }
 
 }
+/* =========================
+   SORPRESA DEL JUEVES
+========================= */
+
+.sorpresa-jueves {
+    margin-top: 70px;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(0,0,0,0.12);
+
+    opacity: 0;
+
+    animation:
+        sorpresaAparecer 1.5s ease
+        1.5s forwards;
+}
+
+.sorpresa-titulo {
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #9b6a78;
+}
+
+.sorpresa-jueves p {
+    margin-bottom: 15px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+}
+
+.sorpresa-importante {
+    margin-top: 30px !important;
+
+    font-size: 29px !important;
+
+    font-weight: 600;
+
+    color: #9b5368;
+}
+
+.sorpresa-final {
+    font-size: 18px !important;
+
+    font-style: italic;
+
+    opacity: 0.7;
+}
+
+@keyframes sorpresaAparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
